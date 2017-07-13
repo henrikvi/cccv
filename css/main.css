@@ -1,0 +1,17 @@
+#canvas {
+    display: none;
+}
+
+#video {
+    border: 1px solid;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#photo {
+    border: 3px dashed;
+    display: none;
+    width: 100%;
+    height: auto;
+}
