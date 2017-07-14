@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="css/normal.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/skeleton.css">
+        
+        <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -23,10 +25,10 @@
         <div class="container">
             <video id="video">Video stream not available.</video>
             <img id="photo" alt="The screen capture will appear in this box.">
-            <button id="startbutton">Take photo</button>
+            <canvas id="canvas"></canvas>
+            <div id="text"></div>
         </div>
-        <canvas id="canvas">
-        </canvas>
+        
 
         <script src="js/main.js"></script>
     </body>

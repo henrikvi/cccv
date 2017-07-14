@@ -4,7 +4,7 @@ function startup() {
     let streaming = false;
     const video = document.getElementById('video');
     const canvas = document.getElementById('canvas');
-    const startbutton = document.getElementById('startbutton');
+    const photo = document.getElementById('photo');
     
     navigator.mediaDevices.getUserMedia({ video: true, audio: false })
         .then((stream) => {
@@ -28,8 +28,13 @@ function startup() {
       }
     }, false);
     
-    startbutton.addEventListener('click', (ev) => {
+    video.addEventListener('click', (ev) => {
       takePicture();
+      ev.preventDefault();
+    }, false);
+    
+    photo.addEventListener('click', (ev) => {
+      returnToCamera();
       ev.preventDefault();
     }, false);
     
@@ -51,7 +56,24 @@ function takePicture(){
         photo.setAttribute('src', data);
         photo.style.display = 'block';
         video.style.display = 'none';
+        
+        recognizeCharacters(data);
     }
+}
+
+function returnToCamera(){
+    video.style.display = 'block';
+    photo.style.display = 'none';
+}
+
+function recognizeCharacters(data){
+    Tesseract.recognize(data)
+    .catch(err => console.error(err))
+    .then(result => {
+        console.log(result.text);
+        let text = document.createTextNode(result.text);
+        document.getElementById('text').appendChild(text);
+    })
 }
 
 window.addEventListener('load', startup());

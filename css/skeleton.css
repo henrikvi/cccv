@@ -414,6 +414,11 @@ there.
         width: 420px;
         height: auto;
     }
+    
+    #photo{
+        width: 420px;
+        height: auto;
+    }
 }
 
 /* Larger than desktop */
